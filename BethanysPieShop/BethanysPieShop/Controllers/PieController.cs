@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BethanysPieShop.ViewModels;
 
 namespace BethanysPieShop.Controllers
 {
@@ -22,7 +23,10 @@ namespace BethanysPieShop.Controllers
 
         public ViewResult List()
         {
-            return View(_pieRepository.Pies);
+            var piesListViewModel = new PieListViewModel();
+            piesListViewModel.Pies = _pieRepository.Pies;
+            piesListViewModel.CurrentCategory = "Cheese Cake";
+            return View(piesListViewModel);
         }
     }
 }
