@@ -9,10 +9,14 @@ namespace BethanysPieShop.Models
 {
     public class AppDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(LocalDB)\\mssqllocaldb;AttachDbFilename=BethanysPieShop;Trusted_Connection=True;");
-            base.OnConfiguring(optionsBuilder); 
-        }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Pie> Pies { get; set; }
+
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{ 
+        //optionsBuilder.UseSqlServer("Server=(LocalDB)\\mssqllocaldb;Database=BethanysPieShop;Trusted_Connection=True;");
+
+        //}
     }
 }
